@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title%}Login Page{% endblock %}
+
+{% block content %}
+
+
+<head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+  </head>
+  <h1>Walking Playlist</h1>
+  <body>
+    <div id="content" class="container">
+      <br>
+      <form action="" method="post">
+        <p>Playlist Name:<input type="text" placeholder="ex: Walking Playlist" name="name" value="{{
+            request.form.username }}"></p>
+        <p>URI 1:<input type="text" placeholder="URI 1" name="uri1" value="{{
+            request.form.password }}"></p>
+        <p>URI 2:<input type="text" placeholder="URI 2" name="uri2" value="{{
+            request.form.password }}"></p>
+        <p>URI 3:<input type="text" placeholder="URI 3" name="uri3" value="{{
+            request.form.password }}"></p>
+          
+        <input class="btn-default" type="submit" value="Create Playlist" onclick="loading();">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+    <div id="loading" > 
+      <div class="main__img--container">
+        <img src="/static/walk3.gif" alt="oopsie" id="main__img">
+      </div>
+    </div>
+    <script>
+      function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }
+    </script>
+  </body>
+</html>
+
+
+{% endblock %}
+

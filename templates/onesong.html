@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title%}Login Page{% endblock %}
+
+{% block content %}
+<h1>Similar Songs</h1>
+
+<head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='onesong.css') }}" />
+  </head>
+  <body>
+    <div id="content" class="container">
+      <br>
+      <form action="" method="post">
+        <p>Song:<input type="text" placeholder="ex: Juice" name="song" value="{{
+            request.form.username }}"></p>
+        <p>Artist:<input type="text" placeholder="ex: Lizzo" name="artist" value="{{
+            request.form.password }}"></p>
+        <p>URI:<input type="text" placeholder="" name="uri" value="{{
+            request.form.password }}"></p>
+        <div class="slidecontainer"><p>How close should songs be to the bpm of the song you entered? The far left is within .5 bpm and the far right is within 10 bpm.</p>
+          <input type="range" min=".5" max="10" name="name_of_slider" class="slider" />      
+        </div>           
+        <input class="btn btn-default" type="submit" value="Create Playlist" onclick="loading();">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+    <div id="loading" > 
+      <div class="main__img--container">
+        <img src="/static/walk3.gif" alt="oopsie" id="main__img">
+      </div>
+    </div>
+    <script>
+      function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }
+    </script>
+  </body>
+</html>
+
+
+{% endblock %}
+

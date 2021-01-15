@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title%}Login Page{% endblock %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='newmusic.css') }}" />
+</head>
+
+<h1>New Music</h1>
+{% if count >= 0 %}
+
+<div id="content" class="container">
+<form id='form_1' action="" method="post">
+    <ol>
+        <li>Here are some of your most played artists. Click on your favorite:</li>
+        <div class='wrapper'>
+        {% for item in top_artist_dict %}
+        <div class="container">
+            <img alt="Qries" src="{{top_artist_dict[item][1]}}" height=50px width=50px></img>
+            <div class="bottom-left">{{item}}</div>    
+            <input type="radio" name="artist" value="{{top_artist_dict[item][0]}}" >        
+        </div>
+        {% endfor %}
+        </div>
+        <input class="btn-default" type="submit" value="Enter">
+    </ol>
+</form>
+
+{% endif %}
+
+
+{% if count >= 3 %}
+
+<form action="" method="post">
+    <ol>
+        <li>Here are some of their top tracks. Click on your favorite:</li>
+        <div class='wrapper'>
+        {% for item in top_tracks_dict %}
+        <div class="container">
+            <input type="radio" name="track" value="{{top_tracks_dict[item][0]}}" />       
+            <img alt="Qries" src="{{top_tracks_dict[item][1]}}" ></img>
+            <div class="bottom-left">{{item}}</div> 
+        </div>
+        {% endfor %}
+        </div>
+
+        <input class="btn-default" type="submit" value="Enter"  onclick="loading();">
+    </ol>
+</form>
+
+
+{% endif %}
+
+{% if count >= 6 %}
+
+<h1>Finished generating a playlist of music similar to {{track_text}} by {{artist_text}}.</h1>
+
+{% endif %}
+
+</div>
+<div id="loading" > 
+    <div class="main__img--container">
+      <img src="/static/walk3.gif" alt="oopsie" id="main__img">
+    </div>
+  </div>
+  <script>
+    function loading(){
+          $("#loading").show();
+          $("#content").hide();       
+      }
+  </script>
+
+
+{% endblock %}

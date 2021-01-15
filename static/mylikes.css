@@ -1,0 +1,39 @@
+
+body {
+    background: #181818;
+    color: #fff;
+}
+
+
+
+.top_song_table {
+    background-color: #ff8177;
+	background-image: linear-gradient(to top, #ff0844 0%, #ffb019 100%);
+	background-size: 100%;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    width: 70%;
+    margin-left:15%; 
+    margin-right:15%;
+    text-align:center;
+
+}
+
+table, tr, td {
+    border: 1px solid rgb(65, 65, 65);
+}
+
+
+.btn-default:hover {
+	background: #4837ff;
+	transition: all 0.3s ease;
+}
+
+.graph_container {
+    color: #fff;
+    background-color: #ff8177;
+
+
+}

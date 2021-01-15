@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mylikes.css') }}" />
+  </head>
+
+  <h1>My Likes</h1>
+
+  <body>
+    {% if page ==0 %}
+    <form action="" method="post">
+        <ol>
+            <li>What time range would you like to look at?</li>
+            <input type="radio" name="time" value="short_term" /> short-term
+            <input type="radio" name="time" value="medium_term" /> medium-term
+            <input type="radio" name="time" value="long_term" /> long-term
+            <input class="btn-default" type="submit" value="Enter">
+        </ol>
+    </form>
+
+    {% endif %}
+
+    {% if page ==1 %}
+
+    <div class="graph_container">
+        {% include 'graph.html' %}
+    </div>
+
+    <h1>Your top tracks in the {{term}} were: </h1>
+    <div class="table_container">
+        <table class='top_song_table'>
+            {% for row in data %}
+            <tr>
+                {% for value in row %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% endif %}
+    </div>
+
+
+    {% endblock %}
+    </body>

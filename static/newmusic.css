@@ -1,0 +1,60 @@
+body {
+    background: #181818;
+    color: #fff;
+}
+
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+
+}
+  
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+}
+
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+
+
+div#loading {
+    display: none;
+    cursor: wait;
+}
+
+#main__img {
+    height: 60%;
+    width: 60%;
+
+    
+}
